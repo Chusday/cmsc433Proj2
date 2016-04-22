@@ -1,0 +1,354 @@
+/*
+COLORS:
+
+White------------------#FFFFFF
+
+Light Light Blue Gray--#C8CFD6
+Light Blue Gray--------#9FABB7
+Blue Gray--------------#535F6B
+Dark Blue Gray---------#2F363D
+
+Light Brown------------#BBBB77
+
+Light Greeen-----------#2F363D
+
+Red--------------------#FF0000
+Dark Red---------------#580000
+
+FORMAT:
+Styles for all selectors follow the format depicted in theformat_template.css
+file; Selector order follows the html layout
+*/
+
+/* page background */
+html {
+	background-color: #535F6B;
+}
+body {
+	width: 900px;
+
+	position: relative;
+
+	background-color: #FFFFFF;
+
+	border: 3px solid #2F363D;
+	border-radius: 10px;
+	margin: 15px auto 30px;
+
+	font-family: arial;
+}
+/* end page background */
+
+/* page header */
+h1 {
+	margin: 15px 0;
+
+	color: #2F363D;
+	text-align: center;
+	font-size: 40px;
+}
+
+/* used to clear float elements */
+.clear {
+	clear: both;
+}
+
+/* global warning for invalid user form interaction */
+#global-warning {
+	height: 50px;
+	width: 600px;
+
+	position: absolute;	
+	left: 150px;
+	top: 65px;
+	z-index: 1;
+
+	background-color: #580000;
+
+	padding: 10px;
+	border-radius: 10px;
+}
+#global-warning > p {
+	display: table-cell;
+
+	height: 50px;
+	width: 600px;
+
+	vertical-align: middle;
+	
+	color: #FFFFFF;
+	text-align: center;
+	font-weight: bold;
+	font-size: 16px;
+}
+/* end global warning */
+
+/* top section */
+#top-section {
+	height: 140px;
+
+	margin: 0 0 15px 0;
+}
+/* student data form */
+#form-div {
+	width: 365px;
+
+	float: left;
+
+	margin: 0 15px;
+}
+.form-section {
+	width: 175px;
+
+	float: left;
+
+	margin: 0 15px 0 0;
+}
+.form-section:nth-child(2) {
+	margin: 0;
+}
+.form-section > label {
+	display: block;
+
+	height: 16px;
+	width: 100px;
+
+	float: left;
+
+	color: #2F363D;
+	font-size: 16px;
+	font-weight: bold;
+	line-height: 16px;
+}
+.form-error {
+	display: block;
+
+	height: 16px;
+	width: 72px;
+
+	float: left;
+
+	color: #FF0000;
+	font-size: 16px;
+	font-weight: bold;
+}
+.form-section > input {
+	height: 25px;
+	width: 157px;
+	
+	padding: 0 7px;
+	border: 1px solid #647382;
+	border-radius: 10px;
+	margin: 0 0 5px 0;
+
+	line-height: 16px;
+	font-size: 16px;
+}
+.form-section > input:focus {
+	border-color: #2F363D;
+}
+.button {
+	height: 24px;
+
+	float: right;
+
+	background-color: #669900;
+
+	padding: 7px 25px;
+	border-radius: 15px;
+	margin: 5px 0 0 0;
+
+	color: #2F363D;
+	font-size: 22px;
+	font-weight: bold;
+	line-height: 24px;
+}
+.button:hover {
+	cursor: pointer;
+}
+#form-submit:active{
+	transform: translateY(2px);
+}
+#help {
+	float:left;
+
+	background-color: #BBBB77;
+}
+/* end student data form */
+
+/* tooltip area */
+#tooltip-container {
+	overflow: hidden;
+
+	height: 116px;
+	width: 466px;	
+	
+	position: relative;
+	float: left;
+
+	background-color: #C8CFD6;
+	
+	padding: 10px;
+	border: 2px solid #2F363D;
+	border-radius: 10px;
+}
+
+#tooltip-container > p {
+	width: 466px;
+
+	position: absolute;
+	top: 10px;
+
+	margin: 0;
+}
+/* end tooltip area */
+/* end top section */
+
+/* tab buttons */
+.tab-button {
+	cursor: pointer;
+
+	height: 40px;
+	width: 290px;
+
+	float:left;
+
+	background-color: #9FABB7;
+
+	border-radius: 15px;
+	margin: 0 5px;	
+}
+.tab-button > p {
+	display: table-cell;
+	
+	height: 40px;
+	width: 300px;
+	
+	vertical-align: middle;
+	
+	color: #2F363D;
+	text-align: center;
+	font-size: 24px;
+	font-weight: bold;
+}
+.tab-button:hover{
+	background-color: #BBBB77;
+}
+.tab-button:active{
+	transform: translateY(2px);
+}
+.tab-button-active {
+	background-color: #535F6B;
+}
+/* end tab buttons */
+
+/* tab content titles */
+#tab-content-titles {
+	border-top: 3px #2F363D solid;
+	margin: 10px 0 0 0;
+}
+.tab-content-title {
+	height: 40px;
+	width: 297px;
+	
+	float: left;
+
+	background-color: #C8CFD6;
+
+	border-right: 3px #2F363D solid;
+}
+.tab-content-title:last-child {
+	width: 300px;
+
+	border: none;
+}
+.tab-content-title > p {
+	display: table-cell;
+
+	height: 40px;
+	width: 297px;
+	
+	vertical-align: middle;
+
+	margin: 0;
+
+	color: #2F363D;
+	text-align: center;
+	font-size: 24px;
+	font-weight: bold;
+}
+/* end tab content titles */
+
+/* tab content */
+#tab-content {
+	border-top: 3px #2F363D solid;
+}
+.course-section {
+	overflow: hidden;
+
+	height: 400px;
+	width: 277px;
+	
+	float: left;
+
+	padding: 15px 10px;
+	border-right: 3px solid #2F363D;
+}
+.course-section:last-child {
+	border-right: none;
+}
+.course-select {
+	position: relative;
+}
+/* course items in the tab select areas */
+.course-item {
+	height: 55px;
+
+	background-color: #9FABB7;
+
+	margin: 0 0 15px 0;
+	border-radius: 10px;
+	padding: 5px;
+
+	text-align: center;
+	font-size: 14px;
+	font-weight: bold;
+
+}
+.course-item > p {
+	display: table-cell;
+	
+	height: 55px;
+	width: 268px;
+	
+	vertical-align: middle;
+	
+	color: #2F363D;
+	text-align: center;
+	font-size: 14px;
+}
+.course-item:last-child {
+	margin: 0;
+}
+.course-item:hover {
+	cursor: pointer;
+}
+.course-required {
+	background-color: #580000;
+}
+.course-required > p {
+	color: #FFFFFF;
+}
+/* end tab content */
+
+/* thank you text */
+.thanks {
+	width: 870px;
+
+	margin: 0 15px 15px;
+
+	text-align: center;
+	font-size: 18px;
+	font-weight: bold;
+}
+/* end thank you text */

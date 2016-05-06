@@ -1,17 +1,17 @@
 <?php session_start(); ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-	<head>
-		<title>Computer Science Degree Tracker</title>
+<head>
+	<title>Computer Science Degree Tracker</title>
 
-		<!-- external stylesheet for the whole page -->
-		<link rel="stylesheet" href="css/index.css">
+	<!-- external stylesheet for the whole page -->
+	<link rel="stylesheet" href="css/index.css">
 
 
-		<script type="text/javascript" src="js/tooltip.js"></script>
-		<script type="text/javascript" src="js/tab-content.js"></script>
-		<script type="text/javascript" src="js/form.js"></script>
-<?php 	$oArr = array('CMSC304','CMSC313','CMSC331','CMSC341'); ?>		
+	<script type="text/javascript" src="js/tooltip.js"></script>
+	<script type="text/javascript" src="js/tab-content.js"></script>
+	<script type="text/javascript" src="js/form.js"></script>
+	
 <script type="text/javascript">
 
 function addCart (Ith,val) {
@@ -23,28 +23,15 @@ function addCart (Ith,val) {
 	var oiframe = document.getElementById("oFrame");
 	alert(Ith+","+val);
 	oiframe.contentWindow.location.reload(true);
-
 }
 
-/*
-function changeImgMouseOver (imgNum) {
-	// body...
-	var id = "a_img_" + imgNum;
-	document.getElementById(id).src="images/img_available-30.png";
-}
-
-function changeImgMouseOut (imgNum) {
-	// body...
-	var id = "a_img_" + imgNum;
-	document.getElementById(id).src="images/img_AddProperty-30.png";
-}*/
 </script>
-	</head>
+</head>
 
-	<body>
+<body>
 
 <?php
-
+	require 'classes.php';
 	$_SESSION['takenArr'] = array();
 	$_SESSION['availableArr'] = array('CMSC201','CMSC232','CMSC291','CMSC352','CMSC391');
 	$_SESSION['chosenArr'] = array();
@@ -69,77 +56,77 @@ function changeImgMouseOut (imgNum) {
 
 
 ?>
-		<h1>Computer Science Degree Tracker</h1>
+	<h1>Computer Science Degree Tracker</h1>
 
-		<!-- global warning used by javascript for invalid user interaction notifications -->
-		<div id="global-warning" style="display: none;" onmouseover="toggleGlobalWarning(false)"></div>
-		
-		<!-- top section of the page before the tab buttons -->
-		<div id="top-section">
-			<!-- container for the student information form -->
-			<div id="form-div">
-				<form id="form" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-					<!-- first name and last name -->
-					<div class="form-section">
-						<label for="first_name">First Name </label>
-						<span class="form-error"><?php echo $first_nameErr; ?></span><br />
-						<input type="text" name="first_name" tabindex="1" value="<?php echo $first_name; ?>"><br />
-						<label for="last_name">Last Name </label>
-						<span class="form-error"><?php echo $last_nameErr; ?></span><br />
-						<input type="text" name="last_name" tabindex="2" value="<?php echo $last_name; ?>"><br />
-					</div>
+	<!-- global warning used by javascript for invalid user interaction notifications -->
+	<div id="global-warning" style="display: none;" onmouseover="toggleGlobalWarning(false)"></div>
+	
+	<!-- top section of the page before the tab buttons -->
+	<div id="top-section">
+		<!-- container for the student information form -->
+		<div id="form-div">
+			<form id="form" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+				<!-- first name and last name -->
+				<div class="form-section">
+					<label for="first_name">First Name </label>
+					<span class="form-error"><?php echo $first_nameErr; ?></span><br />
+					<input type="text" name="first_name" tabindex="1" value="<?php echo $first_name; ?>"><br />
+					<label for="last_name">Last Name </label>
+					<span class="form-error"><?php echo $last_nameErr; ?></span><br />
+					<input type="text" name="last_name" tabindex="2" value="<?php echo $last_name; ?>"><br />
+				</div>
 
-					<!-- email and student id -->
-					<div class="form-section">
-						<label for="email">Email </label>
-						<span class="form-error"><?php echo $emailErr; ?></span><br />
-						<input type="text" name="email" tabindex="3" value="<?php echo $email; ?>"><br />
-						<label for="id">Student ID </label>
-						<span class="form-error"><?php echo $idErr; ?></span><br />
-						<input type="text" name="id" tabindex="4" value="<?php echo $id; ?>">
-					</div>
+				<!-- email and student id -->
+				<div class="form-section">
+					<label for="email">Email </label>
+					<span class="form-error"><?php echo $emailErr; ?></span><br />
+					<input type="text" name="email" tabindex="3" value="<?php echo $email; ?>"><br />
+					<label for="id">Student ID </label>
+					<span class="form-error"><?php echo $idErr; ?></span><br />
+					<input type="text" name="id" tabindex="4" value="<?php echo $id; ?>">
+				</div>
 
-					<!-- container for javascript to populate with course data on form submit -->
-					<div id="hidden"></div>
+				<!-- container for javascript to populate with course data on form submit -->
+				<div id="hidden"></div>
 
-					<div class="clear"></div>
+				<div class="clear"></div>
 
-					<!-- submit and help buttons -->
-					<div id="form-submit" class="button" onclick="processForm()">Submit</div>
-					<div id="help" class="button" onclick="updateTooltip()">Help</div>
+				<!-- submit and help buttons -->
+				<div id="form-submit" class="button" onclick="processForm()">Submit</div>
+				<div id="help" class="button" onclick="updateTooltip()">Help</div>
 
-					<div class="clear"></div>
-				</form>	
-			</div>
-
-			<!-- the tooltip area initialized with the help_info.txt contents -->
-			<div id="tooltip-container"><p id="tooltip"><?php echo $help_info; ?></p></div>
-		</div>
-		<!-- end of top section -->
-
-		<!-- buttons to switch between tabs -->
-		<div id="cmsc-tab-button" class="tab-button tab-button-active" onclick="changeTab('cmsc')"><p>Computer Science</p></div>
-		<div id="math-tab-button" class="tab-button" onclick="changeTab('math')"><p>Math</p></div>
-		<div id="sci-tab-button" class="tab-button" onclick="changeTab('sci')"><p>Science</p></div>
-
-		<div class="clear"></div>
-
-		<!-- container for the tab content titles -->
-		<div id="tab-content-titles">
-			<div class="tab-content-title"><p>Taken</p></div>
-			<div class="tab-content-title"><p>Available</p></div>
-			<div class="tab-content-title"><p>CART</p></div>
+				<div class="clear"></div>
+			</form>	
 		</div>
 
-		<div class="clear"></div>
+		<!-- the tooltip area initialized with the help_info.txt contents -->
+		<div id="tooltip-container"><p id="tooltip"><?php echo $help_info; ?></p></div>
+	</div>
+	<!-- end of top section -->
 
-		<!-- tab content container -->
-		<div id="tab-content">
-			<!-- computer science courses tab container -->
-			<div id="cmsc-tab" class="tab">
-				<div class="course-section">
+	<!-- buttons to switch between tabs 
+	<div id="cmsc-tab-button" class="tab-button tab-button-active" onclick="changeTab('cmsc')"><p>Computer Science</p></div>
+	<div id="math-tab-button" class="tab-button" onclick="changeTab('math')"><p>Math</p></div>
+	<div id="sci-tab-button" class="tab-button" onclick="changeTab('sci')"><p>Science</p></div>
+-->
+	<div class="clear"></div>
+
+	<!-- container for the tab content titles -->
+	<div id="tab-content-titles">
+		<div class="tab-content-title"><p>Taken</p></div>
+		<div class="tab-content-title"><p>Available</p></div>
+		<div class="tab-content-title"><p>CART</p></div>
+	</div>
+
+	<div class="clear"></div>
+
+	<!-- tab content container -->
+	<div id="tab-content">
+		<!-- computer science courses tab container -->
+		<div id="cmsc-tab" class="tab">
+			<div class="course-section">
 <!-- START TAKEN -->
-					<div id="cmsc-taken" class="course-select cmsc-select">
+				<div id="cmsc-taken" class="course-select cmsc-select">
 <table>
 <?php
 
@@ -177,27 +164,66 @@ function changeImgMouseOut (imgNum) {
 					<table>
 
 <?php
-	//$id = 1; #DEBUG
-	$id = NULL; #DEBUG
-
+	$id = 1; #DEBUG
+	//$id = NULL; #DEBUG
 	$imgNum = 0;
+	$numClasses = count($_SESSION['classesInfo']);
 	if ($id == NULL) {
 		# display 2xx level classes for a guest
-		
-		foreach ($_SESSION['availableArr'] as $value) {
-			echo '<tr><td height="50px"><img id="a_img_'.$imgNum.'" src="images/img_AddProperty-30.png" ';
-			echo 'onmouseover="this.src=\'images/img_available-30.png\'" ';
-			echo 'onmouseout="this.src=\'images/img_AddProperty-30.png\'" ';
-			echo 'onclick="addCart(\''.$imgNum.'\',\''.$value.'\')"/></td>';
-			echo '<td><input type="hidden" id="'.$value.'" value="'.$value.'">';
-			echo '&nbsp;'.$value.'</td></tr>';
-			echo "\n";
-			$imgNum++;
+		echo "NULL<br>";
+		while( $each = current($_SESSION['classesInfo']) ) {
+			$value = key($_SESSION['classesInfo']);
+			
+			if ($each[0] === '0') {
+				//echo $value.', '.$imgNum.', '.$each[0].'<br>';
+				echo '<tr><td height="50px"><img id="a_img_'.$imgNum.'" src="images/img_AddProperty-30.png" ';
+				echo 'onmouseover="this.src=\'images/img_available-30.png\'" ';
+				echo 'onmouseout="this.src=\'images/img_AddProperty-30.png\'" ';
+				echo 'onclick="addCart(\''.$imgNum.'\',\''.$value.'\')"/></td>';
+				echo '<td><input type="hidden" id="'.$value.'" value="'.$value.'">';
+				echo '&nbsp;'.$value.'</td></tr>';
+				echo "\n";
+				$imgNum++;
+			}
+			next($_SESSION['classesInfo']);	
+			
 		}
+
 	} else {
 		# display available classes
 		$num = count($_SESSION['takenArr']);
-		echo $num."<br>";
+
+		while( $eachArr = current($_SESSION['classesInfo']) ) {
+			$flagExist = true;
+			$value = key($_SESSION['classesInfo']);
+
+			if (in_array($value, $_SESSION['takenArr'])) {
+				$flagExist = false;
+				//echo " (Taken: ".$value.")<br>";
+			}
+			else{
+				for ($i=1; $i < count($eachArr) ; $i++) { 
+					if ( !in_array($eachArr[$i], $_SESSION['takenArr']) ){
+						$flagExist = false;
+						break;
+					}
+				}
+			}
+			if ($flagExist) {
+				//echo $value.', '.$imgNum.'<br>';
+
+				echo '<tr><td height="50px"><img id="a_img_'.$imgNum.'" src="images/img_AddProperty-30.png" ';
+				echo 'onmouseover="this.src=\'images/img_available-30.png\'" ';
+				echo 'onmouseout="this.src=\'images/img_AddProperty-30.png\'" ';
+				echo 'onclick="addCart(\''.$imgNum.'\',\''.$value.'\')"/></td>';
+				echo '<td><input type="hidden" id="'.$value.'" value="'.$value.'">';
+				echo '&nbsp;'.$value.'</td></tr>';
+				echo "\n";
+				$imgNum++;
+			}
+			next($_SESSION['classesInfo']);	
+			
+		}
 
 	}
 

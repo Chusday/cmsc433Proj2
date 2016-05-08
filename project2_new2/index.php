@@ -20,8 +20,8 @@ TO DO LIST
 	<link rel="stylesheet" href="index.css">
 
 	
-<script type="text/javascript">
-
+<script src="functions.js">
+/*
 function addCart (Ith,val) {
 	var xmlhttp = new XMLHttpRequest();
 	xmlhttp.open("GET", "html/optionFrame.php?c=" + val , true);
@@ -124,7 +124,7 @@ function submitCart () {
 
 	//window.top.location.reload();
 }
-
+*/
 </script>
 </head>
 

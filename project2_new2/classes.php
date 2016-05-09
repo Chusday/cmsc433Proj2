@@ -58,9 +58,46 @@ $_SESSION['classesInfo'] = array(
 	'CMSC495' => array('2', 'CMSC341', 'DEPCONSENT' ),
 	'CMSC498' => array('2', 'CMSC341', 'DEPCONSENT' ),
 	'CMSC499' => array('2', 'CMSC341', 'DEPCONSENT' ),*/
-	'MATH152' => array('0' ),
+	'MATH151' => array('0' ),
+	'MATH152' => array('1', 'MATH151'),
 	'MATH221' => array('0' ),
-	'STAT355' => array('1', 'MATH152')
+	'STAT355' => array('1', 'MATH152'),
+	'PHYS121' => array('0' ),
+	'PHYS122' => array('1', 'PHYS121'),
+	'PHYS122L' => array('1', 'PHYS122'),
+	'CHEM101' => array('0' ),
+	'CHEM102' => array('1', 'CHEM101'),
+	'CHEM102L' => array('1', 'CHEM102'),
+	'GES110' => array('1', 'CHEM102L'),
+	'BIOL141' => array('0' ),
+	'BIOL142' => array('1', 'BIOL141'),
+	'BIOL100' => array('0' ),
+	'BIOL300' => array('1', 'BIOL100')
+	/* 
+	I don't understand how class prereqs work enough to write these, will work on it later -Dylan
+	'GES120'
+	'GES111'                       
+	'BIOL251'
+	'BIOL252'
+	'BIOL301'
+	'BIOL302'
+	'BIOL303'
+	'BIOL304'
+	'BIOL305'
+	'PHYS224'
+	'PHYS304'
+	'BIOL100L'
+	'BIOL251L'
+	'BIOL252L'
+	'BIOL275L'
+	'BIOL302L'
+	'BIOL303L'
+	'BIOL304L'
+	'BIOL305L'*/
+	
+	
+	
+	
 
 )
 

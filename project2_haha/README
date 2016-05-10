@@ -1,6 +1,6 @@
 CMSC 433 Project 2
 
-+ Authors: Dylan Chu            :
+* Authors: Dylan Chu            :
 	       - Class pre-req code
 	       - Documentation
 	   Kayoung Kim          : kayoung2@umbc.edu
@@ -14,13 +14,13 @@ CMSC 433 Project 2
 	       - help on whatever code did not work
 
 ===========================================================
-+ Location: http://userpages.umbc.edu/~npatel10/pjt2/gitCode/cmsc433Proj2/project2_new2/
+* Location: http://userpages.umbc.edu/~npatel10/pjt2/gitCode/cmsc433Proj2/project2_new2/
 + Preferred Browser: Google Chrome
   - did not seem to have any issue. Safari, and firefox acted weird 
     sometimes 
 
 ===========================================================
-+ Project Description: 
+* Project Description: 
   - This a revised project that the authors received from another 
     group. The purpose of the project is to create a web page 
     that helps advisors in the department of computer science 
@@ -63,10 +63,8 @@ CMSC 433 Project 2
     + Log out button: to log the student out of the account. 
 
 ===========================================================
-+ What did we add
-  - proving that you deserve the "A"
-  - text + screenShot
-
+* What did we add
+ 
 + The most important thing that was the drastically improved was 
   the database 
 + Not using a JSON file that was used to strore the 
@@ -85,7 +83,7 @@ CMSC 433 Project 2
 + Number of files is much less 
 
 ===========================================================
-+ What did we improve
+* What did we improve
   - The database: Previous project had 6 tables. New one has just 
     2 tables. Much less data being stored hence increasing 
     the amount of data that can be stored in the database.
@@ -109,7 +107,7 @@ CMSC 433 Project 2
     courses in the tables.  
 
 ===========================================================
-+ DB setup
+* DB setup
   - screentshot, why?
   + 2 tables to store all information 
     - STUDENT 
@@ -137,7 +135,7 @@ Why such a model was used?
       of data being stored in the DB. 
   
 ===========================================================
-+ DB dump
+* DB dump
   - The database dump file is named 'kayoung2.sql' 
   - It should dump three tables that are required for the 
     code to work correctly. Those tables are: 
@@ -149,7 +147,7 @@ Why such a model was used?
         relation between the two tables 
 
 ===========================================================
-+ Languages used
+* Languages used
   - Html 
     - used for the pages and basic setup 
   - PHP

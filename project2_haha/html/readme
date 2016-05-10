@@ -1,0 +1,4 @@
+This is the exact same file as the optionFrame.php in the main folder. However, the fram does not seem 
+to work when called for since it has a specific file path. To mathc the file path to the code, this
+extra copy was created. 
+The actual file path was not hard coded, however it seems ajax has its own way ofdoing things. 

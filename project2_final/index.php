@@ -43,6 +43,7 @@ $first_name;
 $last_name;
 $email;
 $fourhundredflag = 0;
+$CMSC331flag = 0;
 
 
 //FUNCTIONS
@@ -202,6 +203,10 @@ echo $str4;
 				$fourhundredflag =1;
 			}
 			
+			if ($eachClass == "CMSC203" || $eachClass == "MATH301"){
+				$CMSC331flag=1;
+			}
+			
 			array_push($_SESSION['takenArr'], $eachClass);
 			echo '<tr><td height="50px"><img src="images/img_check2-30.png" /></td>';
 			echo '<td id="t_'.$eachClass.'" >&nbsp;'.$eachClass.'</td></tr>';
@@ -211,6 +216,11 @@ echo $str4;
 		if ($fourhundredflag ==1){
 			array_push($_SESSION['takenArr'], "CMSC4XX");
 		}
+		
+		if ($CMSC331flag ==1){
+			array_push($_SESSION['takenArr'], "CMSC203ORMATH301");
+		}
+
 
 
 	}
